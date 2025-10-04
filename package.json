@@ -1,0 +1,52 @@
+{
+  "name": "boxly-workspace",
+  "version": "1.0.0",
+  "description": "Social Media Platform for Roblox Community - Microservices Architecture with Express.js",
+  "private": true,
+  "workspaces": [
+    "api-gateaway",
+    "services/*",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspaces\"",
+    "dev:auth": "npm run dev --workspace=auth-service",
+    "dev:user": "npm run dev --workspace=user-service",
+    "dev:feed": "npm run dev --workspace=feed-service",
+    "dev:comment": "npm run dev --workspace=comment-service",
+    "dev:like": "npm run dev --workspace=like-service",
+    "dev:gateway": "npm run dev --workspace=api-gateaway",
+    "start": "npm run start --workspaces",
+    "start:auth": "npm run start --workspace=auth-service",
+    "start:user": "npm run start --workspace=user-service",
+    "start:feed": "npm run start --workspace=feed-service",
+    "start:comment": "npm run start --workspace=comment-service",
+    "start:like": "npm run start --workspace=like-service",
+    "start:gateway": "npm run start --workspace=api-gateaway",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces",
+    "install:all": "npm install",
+    "clean": "rm -rf node_modules && npm run clean --workspaces",
+    "logs": "npm run logs --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "microservices",
+    "express",
+    "nodejs",
+    "social-media",
+    "api-gateway",
+    "mongodb",
+    "jwt"
+  ],
+  "author": "Boxly Team",
+  "license": "ISC"
+}
