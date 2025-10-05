@@ -1,4 +1,4 @@
-# 🗄️ Database Architecture - Boxly Boiler
+# 🗄️ Database Architecture - bloxly Backend
 
 ## 🎯 **Pendekatan: Database per Service dengan MongoDB**
 
@@ -9,13 +9,13 @@ Setiap microservice memiliki **database terpisah** dalam **satu MongoDB instance
 #### **Option 1: Database per Service (Recommended)**
 ```
 MongoDB Instance (localhost:27017)
-├── boxly_auth (Auth Service)
+├── bloxly_auth (Auth Service)
 │   ├── users
 │   └── refresh_tokens
-├── boxly_user (User Service)
+├── bloxly_user (User Service)
 │   ├── user_profiles
 │   └── follows
-├── boxly_post (Post Service)
+├── bloxly_post (Post Service)
 │   ├── posts
 │   └── post_tags
 └── ... (dan seterusnya)
@@ -24,7 +24,7 @@ MongoDB Instance (localhost:27017)
 #### **Option 2: Collection per Service (Alternative)**
 ```
 MongoDB Instance (localhost:27017)
-└── boxly_app (Single Database)
+└── bloxly_app (Single Database)
     ├── auth_users
     ├── auth_refresh_tokens
     ├── user_profiles
@@ -40,14 +40,14 @@ MongoDB Instance (localhost:27017)
 
 | Service | Database | Collections | Port | Schema Location |
 |---------|----------|-------------|------|-----------------|
-| **Auth Service** | `boxly_auth` | users, refresh_tokens | 27017 | `services/auth-service/src/models/` |
-| **User Service** | `boxly_user` | user_profiles, follows | 27017 | `services/user-service/src/models/` |
-| **Post Service** | `boxly_post` | posts, post_tags | 27017 | `services/post-service/src/models/` |
-| **Comment Service** | `boxly_comment` | comments | 27017 | `services/comment-service/src/models/` |
-| **Like Service** | `boxly_like` | likes | 27017 | `services/like-service/src/models/` |
-| **Community Service** | `boxly_community` | communities, community_members, community_rules | 27017 | `services/community-service/src/models/` |
-| **Notification Service** | `boxly_notification` | notifications, notification_settings | 27017 | `services/notification-service/src/models/` |
-| **Feed Service** | `boxly_feed` | feed_cache | 27017 | `services/feed-service/src/models/` |
+| **Auth Service** | `bloxly_auth` | users, refresh_tokens | 27017 | `services/auth-service/src/models/` |
+| **User Service** | `bloxly_user` | user_profiles, follows | 27017 | `services/user-service/src/models/` |
+| **Post Service** | `bloxly_post` | posts, post_tags | 27017 | `services/post-service/src/models/` |
+| **Comment Service** | `bloxly_comment` | comments | 27017 | `services/comment-service/src/models/` |
+| **Like Service** | `bloxly_like` | likes | 27017 | `services/like-service/src/models/` |
+| **Community Service** | `bloxly_community` | communities, community_members, community_rules | 27017 | `services/community-service/src/models/` |
+| **Notification Service** | `bloxly_notification` | notifications, notification_settings | 27017 | `services/notification-service/src/models/` |
+| **Feed Service** | `bloxly_feed` | feed_cache | 27017 | `services/feed-service/src/models/` |
 
 **MongoDB Instance:** `mongodb://localhost:27017` (Single Instance)
 
@@ -314,50 +314,50 @@ module.exports = mongoose.model('FeedCache', feedCacheSchema);
 # Auth Service (.env)
 DB_HOST=localhost
 DB_PORT=27017
-DB_NAME=boxly_auth
-DB_URL=mongodb://localhost:27017/boxly_auth
+DB_NAME=bloxly_auth
+DB_URL=mongodb://localhost:27017/bloxly_auth
 
 # User Service (.env)
 DB_HOST=localhost
 DB_PORT=27017
-DB_NAME=boxly_user
-DB_URL=mongodb://localhost:27017/boxly_user
+DB_NAME=bloxly_user
+DB_URL=mongodb://localhost:27017/bloxly_user
 
 # Post Service (.env)
 DB_HOST=localhost
 DB_PORT=27017
-DB_NAME=boxly_post
-DB_URL=mongodb://localhost:27017/boxly_post
+DB_NAME=bloxly_post
+DB_URL=mongodb://localhost:27017/bloxly_post
 
 # Comment Service (.env)
 DB_HOST=localhost
 DB_PORT=27017
-DB_NAME=boxly_comment
-DB_URL=mongodb://localhost:27017/boxly_comment
+DB_NAME=bloxly_comment
+DB_URL=mongodb://localhost:27017/bloxly_comment
 
 # Like Service (.env)
 DB_HOST=localhost
 DB_PORT=27017
-DB_NAME=boxly_like
-DB_URL=mongodb://localhost:27017/boxly_like
+DB_NAME=bloxly_like
+DB_URL=mongodb://localhost:27017/bloxly_like
 
 # Community Service (.env)
 DB_HOST=localhost
 DB_PORT=27017
-DB_NAME=boxly_community
-DB_URL=mongodb://localhost:27017/boxly_community
+DB_NAME=bloxly_community
+DB_URL=mongodb://localhost:27017/bloxly_community
 
 # Notification Service (.env)
 DB_HOST=localhost
 DB_PORT=27017
-DB_NAME=boxly_notification
-DB_URL=mongodb://localhost:27017/boxly_notification
+DB_NAME=bloxly_notification
+DB_URL=mongodb://localhost:27017/bloxly_notification
 
 # Feed Service (.env)
 DB_HOST=localhost
 DB_PORT=27017
-DB_NAME=boxly_feed
-DB_URL=mongodb://localhost:27017/boxly_feed
+DB_NAME=bloxly_feed
+DB_URL=mongodb://localhost:27017/bloxly_feed
 ```
 
 ### Database Connection per Service

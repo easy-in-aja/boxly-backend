@@ -6,7 +6,7 @@
 ```bash
 # Clone dan masuk ke project
 git clone <repository-url>
-cd boxly-boiler
+cd bloxly-backend
 
 # Install semua dependencies (sekali saja)
 npm install
@@ -29,7 +29,7 @@ npm run dev:auth
 ### 🎯 **Why Dependencies are in Root?**
 
 ```
-boxly-boiler/
+bloxly-backend/
 ├── node_modules/          # ← SEMUA dependencies di sini
 │   ├── express/           # Shared by all services
 │   ├── mongoose/          # Shared by all services
@@ -97,7 +97,7 @@ cd services/new-service
 ### 2. **Create package.json**
 ```json
 {
-  "name": "@boxly/new-service",
+  "name": "@bloxly/new-service",
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
@@ -197,7 +197,7 @@ cat package.json | grep workspaces
 ls services/*/package.json
 
 # 3. Verify service name format
-# Should be: @boxly/service-name
+# Should be: @bloxly/service-name
 ```
 
 ## 🎯 **Best Practices**
@@ -239,14 +239,14 @@ ls services/*/package.json
 5. **Database per service:**
    ```bash
    # Each service has its own database
-   DB_URL=mongodb://localhost:27017/boxly_auth      # Auth Service
-   DB_URL=mongodb://localhost:27017/boxly_user      # User Service
-   DB_URL=mongodb://localhost:27017/boxly_post      # Post Service
-   DB_URL=mongodb://localhost:27017/boxly_comment   # Comment Service
-   DB_URL=mongodb://localhost:27017/boxly_like      # Like Service
-   DB_URL=mongodb://localhost:27017/boxly_community # Community Service
-   DB_URL=mongodb://localhost:27017/boxly_notification # Notification Service
-   DB_URL=mongodb://localhost:27017/boxly_feed      # Feed Service
+   DB_URL=mongodb://localhost:27017/bloxly_auth      # Auth Service
+   DB_URL=mongodb://localhost:27017/bloxly_user      # User Service
+   DB_URL=mongodb://localhost:27017/bloxly_post      # Post Service
+   DB_URL=mongodb://localhost:27017/bloxly_comment   # Comment Service
+   DB_URL=mongodb://localhost:27017/bloxly_like      # Like Service
+   DB_URL=mongodb://localhost:27017/bloxly_community # Community Service
+   DB_URL=mongodb://localhost:27017/bloxly_notification # Notification Service
+   DB_URL=mongodb://localhost:27017/bloxly_feed      # Feed Service
    ```
 
 ### ❌ **Don'ts**
@@ -330,63 +330,63 @@ npm outdated
 | Service | Port | Database | Base URL |
 |---------|------|----------|----------|
 | **API Gateway** | 3000 | - | `http://localhost:3000` |
-| **Auth Service** | 3001 | `boxly_auth` | `http://localhost:3001` |
-| **User Service** | 3002 | `boxly_user` | `http://localhost:3002` |
-| **Post Service** | 3003 | `boxly_post` | `http://localhost:3003` |
-| **Comment Service** | 3004 | `boxly_comment` | `http://localhost:3004` |
-| **Like Service** | 3005 | `boxly_like` | `http://localhost:3005` |
-| **Community Service** | 3006 | `boxly_community` | `http://localhost:3006` |
-| **Notification Service** | 3007 | `boxly_notification` | `http://localhost:3007` |
-| **Feed Service** | 3008 | `boxly_feed` | `http://localhost:3008` |
+| **Auth Service** | 3001 | `bloxly_auth` | `http://localhost:3001` |
+| **User Service** | 3002 | `bloxly_user` | `http://localhost:3002` |
+| **Post Service** | 3003 | `bloxly_post` | `http://localhost:3003` |
+| **Comment Service** | 3004 | `bloxly_comment` | `http://localhost:3004` |
+| **Like Service** | 3005 | `bloxly_like` | `http://localhost:3005` |
+| **Community Service** | 3006 | `bloxly_community` | `http://localhost:3006` |
+| **Notification Service** | 3007 | `bloxly_notification` | `http://localhost:3007` |
+| **Feed Service** | 3008 | `bloxly_feed` | `http://localhost:3008` |
 
 ### 📋 **Environment Variables per Service**
 
 ```bash
 # Auth Service (.env)
 PORT=3001
-DB_URL=mongodb://localhost:27017/boxly_auth
+DB_URL=mongodb://localhost:27017/bloxly_auth
 JWT_SECRET=your-jwt-secret
 JWT_EXPIRES_IN=1h
 REFRESH_TOKEN_EXPIRES_IN=7d
 
 # User Service (.env)
 PORT=3002
-DB_URL=mongodb://localhost:27017/boxly_user
+DB_URL=mongodb://localhost:27017/bloxly_user
 AUTH_SERVICE_URL=http://localhost:3001
 
 # Post Service (.env)
 PORT=3003
-DB_URL=mongodb://localhost:27017/boxly_post
+DB_URL=mongodb://localhost:27017/bloxly_post
 USER_SERVICE_URL=http://localhost:3002
 COMMUNITY_SERVICE_URL=http://localhost:3006
 
 # Comment Service (.env)
 PORT=3004
-DB_URL=mongodb://localhost:27017/boxly_comment
+DB_URL=mongodb://localhost:27017/bloxly_comment
 POST_SERVICE_URL=http://localhost:3003
 USER_SERVICE_URL=http://localhost:3002
 
 # Like Service (.env)
 PORT=3005
-DB_URL=mongodb://localhost:27017/boxly_like
+DB_URL=mongodb://localhost:27017/bloxly_like
 POST_SERVICE_URL=http://localhost:3003
 COMMENT_SERVICE_URL=http://localhost:3004
 
 # Community Service (.env)
 PORT=3006
-DB_URL=mongodb://localhost:27017/boxly_community
+DB_URL=mongodb://localhost:27017/bloxly_community
 USER_SERVICE_URL=http://localhost:3002
 POST_SERVICE_URL=http://localhost:3003
 
 # Notification Service (.env)
 PORT=3007
-DB_URL=mongodb://localhost:27017/boxly_notification
+DB_URL=mongodb://localhost:27017/bloxly_notification
 USER_SERVICE_URL=http://localhost:3002
 POST_SERVICE_URL=http://localhost:3003
 
 # Feed Service (.env)
 PORT=3008
-DB_URL=mongodb://localhost:27017/boxly_feed
+DB_URL=mongodb://localhost:27017/bloxly_feed
 POST_SERVICE_URL=http://localhost:3003
 USER_SERVICE_URL=http://localhost:3002
 COMMENT_SERVICE_URL=http://localhost:3004
@@ -545,7 +545,7 @@ sudo systemctl status mongod
 mongo --eval "db.adminCommand('ismaster')"
 
 # Check service database
-mongo boxly_auth --eval "db.stats()"
+mongo bloxly_auth --eval "db.stats()"
 ```
 
 #### **Service Communication Issues**

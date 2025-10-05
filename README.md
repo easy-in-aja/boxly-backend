@@ -1,4 +1,4 @@
-# 🚀 Boxly - Community Platform for Roblox Players 
+# 🚀 Bloxly - Community Platform for Roblox Players 
 
 ## 📋 Table of Contents
 - [Overview](#overview)
@@ -12,7 +12,7 @@
 
 ## 🎯 Overview
 
-Boxly adalah platform komunitas yang dibangun dengan **Microservices Architecture** menggunakan Express.js. Project ini menggunakan **npm workspaces** untuk mengelola multiple services dalam satu repository (monorepo) dengan fitur lengkap termasuk **Community** dan **Notification** systems.
+Bloxly adalah platform komunitas yang dibangun dengan **Microservices Architecture** menggunakan Express.js. Project ini menggunakan **npm workspaces** untuk mengelola multiple services dalam satu repository (monorepo) dengan fitur lengkap termasuk **Community** dan **Notification** systems.
 
 ### 🏗️ Architecture Pattern
 - **Clean Architecture** - Separation of concerns yang jelas
@@ -44,7 +44,7 @@ Boxly adalah platform komunitas yang dibangun dengan **Microservices Architectur
 ## 📁 Project Structure
 
 ```
-boxly-boiler/
+bloxly-backend/
 ├── 📦 node_modules/           # Shared dependencies (di root)
 ├── 📄 package.json            # Root workspace manager
 ├── 🌐 api-gateway/            # API Gateway (entry point)
