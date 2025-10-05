@@ -10,6 +10,7 @@
 - [Commands Reference](#commands-reference)
 - [Troubleshooting](#troubleshooting)
 
+<a id="overview"></a>
 ## 🎯 Overview
 
 Bloxly adalah platform komunitas yang dibangun dengan **Microservices Architecture** menggunakan Express.js. Project ini menggunakan **npm workspaces** untuk mengelola multiple services dalam satu repository (monorepo) dengan fitur lengkap termasuk **Community** dan **Notification** systems.
@@ -41,6 +42,7 @@ Bloxly adalah platform komunitas yang dibangun dengan **Microservices Architectu
 - **Development:** Nodemon, Concurrently
 - **Security:** Helmet, CORS, express-validator
 
+<a id="project-structure"></a>
 ## 📁 Project Structure
 
 ```
@@ -77,6 +79,7 @@ bloxly-backend/
 | **Notification Service** | 3007 | Real-time notifications |
 | **Feed Service** | 3008 | Timeline aggregation, content discovery |
 
+<a id="workspace-management"></a>
 ## 🔧 Workspace Management
 
 ### 🎯 What is Workspace Management?
@@ -102,6 +105,7 @@ Each Service/
 └── package.json            # Dependencies resolved to root node_modules
 ```
 
+<a id="getting-started"></a>
 ## 🚀 Getting Started
 
 ### 1. **Prerequisites**
@@ -147,6 +151,7 @@ sudo systemctl start mongod
 docker run -d -p 27017:27017 --name mongodb mongo:latest
 ```
 
+<a id="development-workflow"></a>
 ## 💻 Development Workflow
 
 ### 🎯 **Running All Services**
@@ -201,6 +206,7 @@ npm run lint
 npm run build
 ```
 
+<a id="service-architecture"></a>
 ## 🏗️ Service Architecture
 
 ### 📋 **Clean Architecture Layers**
@@ -256,6 +262,7 @@ User Request → API Gateway → Auth Service (validate token)
 | **Notifications** | `/api/notifications` | `/`, `/:id/read`, `/settings` |
 | **Feed** | `/api/feed` | `/`, `/explore`, `/search` |
 
+<a id="commands-reference"></a>
 ## 📚 Commands Reference
 
 ### 🎯 **Root Level Commands**
@@ -300,6 +307,7 @@ User Request → API Gateway → Auth Service (validate token)
 | `npm run <script> --workspaces` | Run script in all workspaces |
 | `npm run <script> --workspace=<service>` | Run script in specific workspace |
 
+<a id="troubleshooting"></a>
 ## 🐛 Troubleshooting
 
 ### ❌ **Common Issues**
