@@ -1,5 +1,5 @@
 {
-    "name": "@bloxly/auth-service",
+    "name": "@bloxly/user-service",
     "version": "1.0.0",
     "description": "",
     "main": "src/index.js",
